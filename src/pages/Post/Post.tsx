@@ -3,7 +3,7 @@ import { X } from "react-feather";
 import { useNavigate, useParams } from "react-router-dom";
 import uuid from "react-uuid";
 import { Comment } from "../../components";
-import useWrapperComponent from "../../hoc/useWrapperComponent";
+import withClassName from "../../hoc/withClassName";
 import getCommentsByPost from "../../services/getCommentsByPost";
 import getPostById from "../../services/getPostById";
 import getUserById from "../../services/getUserById";
@@ -14,7 +14,6 @@ import {
 } from "../../services/types";
 
 const Post = () => {
-  useWrapperComponent("Post");
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -113,4 +112,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default withClassName(Post);

@@ -3,12 +3,11 @@ import { useNavigate } from "react-router-dom";
 import uuid from "react-uuid";
 import { Card, Search } from "../../components";
 import { TSearchProps } from "../../components/types";
-import useWrapperComponent from "../../hoc/useWrapperComponent";
+import withClassName from "../../hoc/withClassName";
 import getAllPosts from "../../services/getAllPosts";
 import { TApiResponsePosts } from "../../services/types";
 
 const PostList: FC = () => {
-  useWrapperComponent("PostList");
   const navigate = useNavigate();
   const [posts, setPosts] = useState<TApiResponsePosts[]>([]);
   const [searchedPosts, setSearchedPosts] = useState<TApiResponsePosts[]>([]);
@@ -72,4 +71,4 @@ const PostList: FC = () => {
   );
 };
 
-export default PostList;
+export default withClassName(PostList);
